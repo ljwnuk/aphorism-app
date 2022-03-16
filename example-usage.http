@@ -1,0 +1,114 @@
+# Base64 encoding of respective login:password pairs:
+# Alexios:abcdef -> QWxleGlvczphYmNkZWY=
+# Kassandra:xyz1234 -> S2Fzc2FuZHJhOnh5ejEyMzQ=
+# Markos:dummy -> TWFya29zOmR1bW15
+
+GET localhost:8080/aphorisms
+
+###
+
+GET localhost:8080/aphorisms?author=Alexios
+
+###
+
+GET localhost:8080/aphorisms?author=Alexio!*s
+
+###
+
+GET localhost:8080/aphorisms/random
+
+###
+
+GET localhost:8080/aphorisms/random?quantity=3
+
+###
+
+GET localhost:8080/aphorisms/random?quantity=-5
+
+###
+
+GET localhost:8080/aphorisms/best?quantity=4
+
+###
+
+GET localhost:8080/aphorisms/popular
+
+###
+
+GET localhost:8080/aphorisms/2
+
+###
+
+GET localhost:8080/aphorisms/25
+
+###
+
+POST localhost:8080/aphorisms
+Content-Type: application/json
+Authorization: Basic S2Fzc2FuZHJhOnh5ejEyMzQ=
+
+{
+    "content": "Life is beautiful!"
+}
+
+###
+
+POST localhost:8080/aphorisms
+Content-Type: application/json
+Authorization: Basic TWFya29zOmR1bW15MQ==
+
+{
+    "content": "Kassandra is beautiful!"
+}
+
+###
+
+GET localhost:8080/ratings?user=Markos
+
+###
+
+GET localhost:8080/ratings?aphorismId=4
+
+###
+
+GET localhost:8080/ratings?aphorismId=-6
+
+###
+
+GET localhost:8080/ratings
+
+###
+
+POST localhost:8080/ratings
+Content-Type: application/json
+Authorization: Basic QWxleGlvczphYmNkZWY=
+
+{
+    "aphorismId": 5,
+    "value": 7,
+    "comment": "Uhm, quite good."
+}
+
+###
+
+GET localhost:8080/ratings?aphorismId=5
+
+###
+
+POST localhost:8080/ratings
+Content-Type: application/json
+Authorization: Basic QWxleGlvczphYmNkZWY=
+
+{
+    "aphorismId": 1,
+    "value": -2,
+    "comment": "I don't know..."
+}
+
+###
+
+GET localhost:8080/prolific-raters?quantity=1
+
+###
+
+GET localhost:8080/proliff-ratters
